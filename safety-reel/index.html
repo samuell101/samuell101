@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>10 Safety Rules Every Girl Must Know — Animated Reel</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="app">
+  <main id="stage-wrap">
+    <svg id="stage" viewBox="0 0 1080 1920" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+      <defs id="defs"></defs>
+      <rect width="1080" height="1920" fill="#111827"/>
+      <g id="scenes"></g>
+      <g id="fx"></g>
+      <g id="hud"></g>
+    </svg>
+    <button id="big-play" aria-label="Play">▶</button>
+  </main>
+
+  <aside id="panel">
+    <header>
+      <p class="eyebrow">Animated awareness reel · 9:16 · 1080×1920 · 30 fps</p>
+      <h1>10 Safety Rules Every Girl Must Know</h1>
+    </header>
+
+    <section class="transport">
+      <button id="btn-play" class="primary">Play</button>
+      <button id="btn-restart">Restart</button>
+      <label class="select">Speed
+        <select id="sel-speed"><option value="0.25">0.25×</option><option value="0.5">0.5×</option><option value="1" selected>1×</option><option value="1.5">1.5×</option><option value="2">2×</option></select>
+      </label>
+      <label class="check"><input type="checkbox" id="chk-sfx" checked> Sound FX</label>
+      <label class="check"><input type="checkbox" id="chk-loop"> Loop</label>
+      <span id="time">0.00 / 0.00</span>
+    </section>
+
+    <section>
+      <div id="timeline" title="Click or drag to scrub"><div id="tl-scenes"></div><div id="tl-head"></div></div>
+    </section>
+
+    <section>
+      <h2>Scenes</h2>
+      <ol id="scene-list"></ol>
+    </section>
+
+    <section class="vo">
+      <h2>Voiceover guide <small>(not burned into the video)</small></h2>
+      <p id="vo-line"></p>
+      <div class="vo-row">
+        <label class="file">Load narration file<input type="file" id="vo-file" accept="audio/*"></label>
+        <span id="vo-status">No narration loaded — placeholder track is empty.</span>
+      </div>
+    </section>
+
+    <footer>
+      <p><b>Keys:</b> Space play/pause · ←/→ step one frame · 1–9, 0 jump to scene · R restart</p>
+      <p><b>Export:</b> <code>node tools/render.js</code> → <code>output/safety-reel.mp4</code> (see README).
+        <button id="btn-sfx-wav">Download SFX track (.wav)</button></p>
+    </footer>
+  </aside>
+</div>
+
+<audio id="voiceover" preload="auto"></audio>
+
+<script src="js/config.js"></script>
+<script src="js/util.js"></script>
+<script src="js/character.js"></script>
+<script src="js/props.js"></script>
+<script src="js/scenes/s01-night.js"></script>
+<script src="js/scenes/s02-strangers.js"></script>
+<script src="js/scenes/s03-cafe.js"></script>
+<script src="js/scenes/s04-college.js"></script>
+<script src="js/scenes/s05-cab.js"></script>
+<script src="js/scenes/s06-followed.js"></script>
+<script src="js/scenes/s07-party.js"></script>
+<script src="js/scenes/s08-sos.js"></script>
+<script src="js/scenes/s09-boundary.js"></script>
+<script src="js/scenes/s10-emergency.js"></script>
+<script src="js/transitions.js"></script>
+<script src="js/hud.js"></script>
+<script src="js/audio.js"></script>
+<script src="js/player.js"></script>
+</body>
+</html>
