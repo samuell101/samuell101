@@ -8,6 +8,8 @@ Every scene follows the same four beats: **Situation → Natural reaction → Ch
 
 ---
 
+> **Theme update:** the rendered reel uses the neon "1% Mindset" look (navy grid, blue spotlights, white line-art figures, orange-haired hero, orange floor glow, HUD header and bottom title block in Poppins ExtraBold + JetBrains Mono). Shots, acting, camera, timing and VO below are unchanged. Gold `#D6A84B` → orange `#FFA51F`, and captions move into the bottom title block.
+
 ## 0. Global production bible
 
 ### Palette (no other saturated colours)
