@@ -1,10 +1,15 @@
-# The 1% Mindset — animated reel (47s, 1080×1920)
+# The 1% Mindset — animated reel (47s, 1080×1920) — Red HUD theme
+
+**Theme:** near-black `#0A0A0A` background with a faint 60px grid, one red accent `#FF2D2D`, and white line-art stick figures. The hero turns **red** at each scene's decision moment. A persistent HUD (top label, `01/09` counter, red progress line, left rail with rule node) stays on screen. Each scene is a "card": a scene window, a metric row with a counting number that turns red at the payoff, a two-line Inter Black headline with one red keyword, and a mono `RULE 0n / CATEGORY` tag. Cards swap with a glitch (RGB split, red scan band, grid jolt) and a tick and blip sound. The bottom ~22% is kept clear for Instagram's UI. The first frame is fully drawn so it works as the thumbnail.
+
+The previous cinematic colour version is in git history (commit before the theme change).
 
 A 2D stick-figure animation drawn with code on an HTML canvas. There are no AI-generated video clips. Every character, prop, UI screen and title is a function you can edit in `index.html`.
 
 | File | What it is |
 |---|---|
-| `one-percent-mindset.mp4` | Final reel: 1080×1920, 30fps, 47.0s, with sound design and score (no voiceover) |
+| `preview-red-hud-540p.mp4` | Red HUD preview (540×960, with sound) for review |
+| `one-percent-mindset.mp4` | Previous full-resolution render (cinematic colour version); replaced by the red HUD render on approval |
 | `storyboard.png` | All 9 storyboard frames, each with its camera move and transition notes |
 | `character-style-sheet.png` | Hero turnaround (front, 3/4, side, back, walk), expressions, supporting cast, palette, typography |
 | `index.html` | The animation. Open it in a browser to play (click to pause). Add `?t=12.5` to view one frame, `?mode=board` for the storyboard, `?mode=sheet` for the style sheet |

@@ -218,10 +218,17 @@ def swell():
     return norm(band(rng.standard_normal(len(t)), 100, 1200) * np.sin(np.pi * t / d) ** 2)
 
 
-GEN = {'impact': lambda: impact(1), 'final': lambda: impact(1.6), 'whoosh': whoosh, 'ding': ding, 'pop': pop, 'key': key,
+def glitch():
+    n = int(.14 * SR)
+    t = t_(.14)
+    sq = np.sign(np.sin(2 * np.pi * 620 * t)) * ((t * 60) % 1 < .5)
+    return norm(band(rng.standard_normal(n), 1500, 9000) * .6 * env(n, .001, .03) + sq * env(n, .001, .05) * .5)
+
+
+GEN = {'glitch': glitch, 'impact': lambda: impact(1), 'final': lambda: impact(1.6), 'whoosh': whoosh, 'ding': ding, 'pop': pop, 'key': key,
        'step': step, 'buzz': buzz, 'thud': thud, 'click': click, 'tick': tick, 'low': low, 'breath': breath, 'carpass': carpass,
        'shutter': shutter, 'switch': switch, 'done': done, 'shimmer': shimmer, 'riser': riser, 'crowd': crowd, 'swell': swell}
-LEVEL = {'impact': .55, 'final': .7, 'whoosh': .22, 'ding': .16, 'pop': .12, 'key': .07, 'step': .16, 'buzz': .2, 'thud': .25,
+LEVEL = {'glitch': .09, 'impact': .55, 'final': .7, 'whoosh': .22, 'ding': .16, 'pop': .12, 'key': .07, 'step': .16, 'buzz': .2, 'thud': .25,
          'click': .12, 'tick': .08, 'low': .28, 'breath': .06, 'carpass': .25, 'shutter': .12, 'switch': .15, 'done': .18,
          'shimmer': .05, 'riser': .16, 'crowd': .07, 'swell': .1}
 cache = {}
