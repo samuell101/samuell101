@@ -35,13 +35,13 @@ Reel.defineScene(4, function (root) {
     <g class="tk" transform="translate(150 -44)">${P.tick(34)}</g>`);
   // booking card (persists from the app UI)
   const book = group(root, `<g filter="url(#shadow)"><rect x="-230" y="-150" width="460" height="300" rx="40" fill="${C.cream}"/></g>
-    ${P.text(-194, -98, 'YOUR CAB', 24, C.coral, 800, 'start', 'letter-spacing="3"')}${P.text(194, -98, 'Arriving', 24, '#7A7389', 600, 'end')}
+    ${P.text(0, -98, 'VERIFY BEFORE RIDE', 26, C.purple, 800, 'middle', 'letter-spacing="2"')}
     <g transform="translate(-44 -34) scale(.92)">${P.plate()}</g>
     <rect class="hl" x="-178" y="-78" width="268" height="88" rx="20" fill="none" stroke="${C.lavender}" stroke-width="6"/>
     <g class="tk1" transform="translate(150 -34)">${P.tick(30)}</g>
     <rect x="-194" y="28" width="388" height="3" fill="#E6DACB"/>
     <circle cx="-152" cy="88" r="38" fill="#5B6BD6"/><circle cx="-152" cy="80" r="15" fill="#B97A52"/><path d="M-176,112 q0,-20 24,-20 q24,0 24,20 z" fill="#B97A52"/>
-    ${P.text(-98, 80, 'Ravi K.', 32, C.navy)}${P.text(-98, 112, '★ 4.8 · White sedan', 22, '#7A7389', 600)}
+    ${P.text(-98, 80, 'Driver Details', 28, C.navy)}${P.text(-98, 112, 'Ravi K. · ★ 4.8', 22, '#7A7389', 600)}
     <g class="tk2" transform="translate(150 88)">${P.tick(30)}</g>`);
   const mk = app.querySelector('.mk');
   const BOOK = [800, 700], CALL = [270, 1010];

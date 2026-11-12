@@ -21,29 +21,29 @@ Reel.config = {
     cream: '#FFF4E8', white: '#FFFFFF', red: '#EF4444', green: '#4ADE80'
   },
 
-  // keyword: on-screen title (two short lines, *word* = coral emphasis).
+  // label:   on-screen scene label (shown in a numbered pill, as in the storyboard).
   // vo:      the voiceover line for that scene (shown only in the editor
   //          panel as a recording guide — never burned into the video).
   scenes: [
-    { id: 'night',     duration: 3, keyword: ['SHARE YOUR', '*LIVE LOCATION*'],
+    { id: 'night',     duration: 3, label: 'NIGHT TRAVEL',
       vo: 'Night travel chesthunnappudu mee live location trusted person ki share cheyandi.' },
-    { id: 'strangers', duration: 3, keyword: ['KEEP PERSONAL', 'DETAILS *PRIVATE*'],
+    { id: 'strangers', duration: 3, label: 'STRANGERS',
       vo: 'Unknown people tho mee personal details share cheyakandi.' },
-    { id: 'cafe',      duration: 3, keyword: ['FIRST MEETING?', '*PUBLIC PLACE* ONLY'],
+    { id: 'cafe',      duration: 3, label: 'FIRST MEETING',
       vo: 'First time meet avuthunnappudu public place lo maatrame meet avvandi.' },
-    { id: 'college',   duration: 3, keyword: ['RUNNING LATE?', '*INFORM FAMILY*'],
+    { id: 'college',   duration: 3, label: 'COLLEGE LIFE',
       vo: 'College nunchi late ga return avuthunnappudu family ki inform cheyandi.' },
-    { id: 'cab',       duration: 3, keyword: ['VERIFY THE CAB', '*BEFORE* YOU RIDE'],
+    { id: 'cab',       duration: 3, label: 'CAB SAFETY',
       vo: 'Cab ekkemundhu number plate and driver details check cheyandi.' },
-    { id: 'followed',  duration: 3, keyword: ['BEING FOLLOWED?', 'GO TO A *CROWD*'],
+    { id: 'followed',  duration: 3, label: 'BEING FOLLOWED',
       vo: 'Evaraina follow chesthunnaru anipisthe, crowded places ki vellandi.' },
-    { id: 'party',     duration: 3, keyword: ['NEVER LEAVE', '*YOUR DRINK*'],
+    { id: 'party',     duration: 3, label: 'PARTIES &amp; OUTINGS',
       vo: 'Mee drink ni unattended ga vadileyakandi.' },
-    { id: 'sos',       duration: 3, keyword: ['KEEP *SOS* CONTACTS', 'ON LOCK SCREEN'],
+    { id: 'sos',       duration: 3, label: 'EMERGENCY CONTACTS',
       vo: 'Mee phone lock screen meedha emergency contacts accessible ga pettukondi.' },
-    { id: 'boundary',  duration: 3, keyword: ["DON'T HESITATE", 'TO SAY *NO*'],
+    { id: 'boundary',  duration: 3, label: 'PERSONAL BOUNDARIES',
       vo: 'Evaraina uncomfortable ga behave chesthe, NO cheppadaniki hesitate avvakandi.' },
-    { id: 'emergency', duration: 4, keyword: ['IN DANGER?', 'CALL *112*'],
+    { id: 'emergency', duration: 4, label: 'EMERGENCY',
       vo: 'Danger lo unte help kosam loud ga call cheyandi. Emergency number 112.' }
   ],
 

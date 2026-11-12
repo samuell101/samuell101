@@ -17,8 +17,8 @@
     girl: {
       skin: '#C98B62', skinShade: '#AE6F49', hair: '#1D1524', hairHi: '#45324F',
       top: '#A78BFA', topShade: '#8E70EE', trousers: '#3A2F6C', trousersShade: '#2C2356',
-      shoe: '#FFFFFF', sole: '#D8D0F5', pack: '#FF7B72', packShade: '#E5625A',
-      lips: '#9E3F3A', hairStyle: 'bob', backpack: true
+      shoe: '#FFFFFF', sole: '#D8D0F5', pack: '#4A2A5E', packShade: '#371D48',
+      lips: '#9E3F3A', hairStyle: 'wavy', backpack: true, shortSleeve: true, earrings: true
     },
     stranger: {
       skin: '#3A304F', skinShade: '#2E2640', hair: '#1A1526', hairHi: '#1A1526',
@@ -27,7 +27,7 @@
     },
     friend: {
       skin: '#B97A52', skinShade: '#9C623F', hair: '#231A1A', hairHi: '#3D2C2C',
-      top: '#FFF4E8', topShade: '#E9D9C6', trousers: '#4B5378', trousersShade: '#3B4263',
+      top: '#2E2B45', topShade: '#232036', trousers: '#4B5378', trousersShade: '#3B4263',
       shoe: '#FFFFFF', sole: '#D8D0F5', lips: '#8A3B33', hairStyle: 'short'
     },
     extraA: {
@@ -52,7 +52,13 @@
     }
   };
 
+  LOOKS.guy = Object.assign({}, LOOKS.friend, { top: '#34314F', topShade: '#28263E', trousers: '#262338', trousersShade: '#1D1B2C', hairStyle: 'short' });
+
   const HAIR = {
+    wavy: {
+      back: 'M-56,-70 C-60,-116 -28,-128 0,-128 C28,-128 60,-116 56,-70 C62,-46 76,-30 69,-6 C63,14 78,30 69,54 C60,78 38,84 26,68 C17,56 21,38 14,18 L-14,18 C-21,38 -17,56 -26,68 C-38,84 -60,78 -69,54 C-78,30 -63,14 -69,-6 C-76,-30 -62,-46 -56,-70 Z',
+      front: 'M-47,-58 C-53,-104 -25,-120 2,-120 C29,-120 52,-104 47,-56 C43,-80 30,-95 10,-100 C-3,-86 -25,-71 -47,-58 Z'
+    },
     bob: {
       back: 'M-54,-70 C-56,-113 -28,-125 0,-125 C28,-125 56,-113 54,-70 C56,-42 64,-12 59,7 C42,17 24,13 15,3 L-15,3 C-24,13 -42,17 -59,7 C-64,-12 -56,-42 -54,-70 Z',
       front: 'M-47,-60 C-52,-104 -25,-118 2,-118 C29,-118 51,-103 47,-58 C42,-80 28,-94 8,-99 C-5,-86 -26,-72 -47,-60 Z'
@@ -93,7 +99,7 @@
       <g class="${cls}">
         <line x1="0" y1="0" x2="0" y2="${DIM.upper}" stroke="${col}" stroke-width="30" stroke-linecap="round"/>
         <g class="elbow" transform="translate(0 ${DIM.upper})">
-          <line x1="0" y1="0" x2="0" y2="${DIM.fore - 12}" stroke="${col}" stroke-width="26" stroke-linecap="round"/>
+          <line x1="0" y1="0" x2="0" y2="${DIM.fore - 12}" stroke="${L.shortSleeve ? (cls === 'armB' ? L.skinShade : L.skin) : col}" stroke-width="${L.shortSleeve ? 22 : 26}" stroke-linecap="round"/>${L.shortSleeve ? `<circle r="15" fill="${col}"/>` : ''}
           <g class="hand" transform="translate(0 ${DIM.fore})"><g class="upright">
             <g class="fist"><circle r="14.5" fill="${L.skin}"/></g>
             <g class="palm" style="display:none">
@@ -112,8 +118,8 @@
             </g>
             <g class="prop-glass" style="display:none">
               <path d="M-17,-58 L17,-58 L13,6 Q13,10 9,10 L-9,10 Q-13,10 -13,6 Z" fill="#FFF4E8" opacity=".28"/>
-              <path d="M-15.4,-34 L15.4,-34 L13,6 Q13,10 9,10 L-9,10 Q-13,10 -13,6 Z" fill="#FF7B72"/>
-              <ellipse cx="0" cy="-34" rx="15.4" ry="3.6" fill="#FF9B93"/>
+              <path d="M-15.4,-34 L15.4,-34 L13,6 Q13,10 9,10 L-9,10 Q-13,10 -13,6 Z" fill="#FB923C"/>
+              <ellipse cx="0" cy="-34" rx="15.4" ry="3.6" fill="#FDBA74"/>
               <ellipse cx="0" cy="-58" rx="17" ry="4" fill="none" stroke="#FFF4E8" stroke-width="2.2" opacity=".9"/>
               <rect x="-20" y="-20" width="13" height="24" rx="6.5" fill="${L.skin}"/>
             </g>
@@ -185,6 +191,7 @@
         <g class="head" transform="translate(0 ${DIM.neckY})">
           <g class="hairBack"><path d="${hs.back}" fill="${hood ? L.top : L.hair}"/></g>
           ${face}
+          ${L.earrings ? `<circle cx="-43" cy="-30" r="8" fill="none" stroke="#F6E7C8" stroke-width="3.5"/><circle cx="43" cy="-30" r="8" fill="none" stroke="#F6E7C8" stroke-width="3.5"/>` : ''}
           ${hs.front ? `<g class="hairFront"><path d="${hs.front}" fill="${L.hair}"/><path d="M-30,-101 q20,-13 44,-9" stroke="${L.hairHi}" stroke-width="3.5" fill="none" stroke-linecap="round" opacity=".8"/></g>` : '<g class="hairFront"></g>'}
         </g>
       </g>

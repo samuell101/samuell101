@@ -20,13 +20,13 @@ Reel.defineScene(1, function (root) {
     </g>`);
   group(root, `<ellipse cx="330" cy="${GY + 6}" rx="120" ry="16" fill="#0B0A1A" opacity=".4"/>`);
   const sShadow = group(root, `<ellipse cy="${GY + 6}" rx="125" ry="16" fill="#0B0A1A" opacity=".4"/>`);
-  const stranger = Reel.Person(root, 'stranger');
+  const stranger = Reel.Person(root, 'guy');
   const girl = Reel.Person(root, 'girl');
 
-  const chips = ['home', 'phone', 'id'].map((n, i) => group(root,
-    `<g filter="url(#shadow)"><circle r="54" fill="${C.cream}"/></g><g class="ic">${P.icon[n](C.purple)}</g>`));
-  const chipPos = [[505, 905], [612, 830], [722, 905]];
-  const block = group(root, P.noSymbol(128));
+  const chips = [['id', 'Personal Info'], ['phone', 'Phone Number'], ['home', 'Address']].map(([n, t]) => group(root,
+    `<g filter="url(#shadow)"><rect x="-170" y="-40" width="340" height="80" rx="40" fill="${C.cream}"/></g><g transform="translate(-126 0) scale(.78)">${P.icon[n](C.purple)}</g>${P.text(-84, 11, t, 30, C.navy, 800)}`));
+  const chipPos = [[610, 810], [640, 902], [610, 994]];
+  const block = group(root, P.noSymbol(84));
   const lock = group(root, `<circle r="40" fill="${C.green}"/><g transform="scale(.9)">${P.icon.lock('#0B3B1E')}</g>`);
   const card = group(root, `<g filter="url(#shadow)">${P.profileCard()}</g>`);
   const bg = card.querySelector('.card-bg'), body = card.querySelector('.card-body');
@@ -40,7 +40,7 @@ Reel.defineScene(1, function (root) {
     const sx = lerp(1330, 835, app) + back * 110, moving = (1 - app) > 0.02 ? 1 : 0;
     const w = rig.walk(lt * 6.2, (1 - app) * 0.9 + 0.05, 0.6), rch = win(u, 0.75, 2.05, 0.4, 0.3);
     const sw = stranger.fk('F', w.shF, w.elF);
-    stranger.set(Object.assign(w, { x: sx, s: 1.22, flip: -1, ground: GY, lean: 4 + 5 * rch - 9 * back, tilt: 4,
+    stranger.set(Object.assign(w, { x: sx, s: 1.22, flip: -1, ground: GY, lean: 4 + 5 * rch - 9 * back, tilt: 4, turn: 0.7, mouth: back > 0.3 ? 'neutral' : 'smile', blink: rig.blink(env.t, 9),
       handF: [lerp(sw[0], 150, rch), lerp(sw[1], -150, rch)] }));
     place(sShadow, sx, 0, 1);
 
@@ -59,7 +59,7 @@ Reel.defineScene(1, function (root) {
       place(ch, lerp(hp[0], chipPos[i][0], k) + pull * 46 + shake, lerp(hp[1], chipPos[i][1], k) + Math.sin(lt * 3 + i * 2) * 7, Math.max(0.001, k) * (1 - 0.12 * prog(u, 1.9, 2.3)));
       show(ch, k > 0); op(ch, 1 - 0.45 * prog(u, 1.9, 2.3));
     });
-    place(block, 612, 872, blk > 0 ? lerp(1.9, 1, blk) : 0.001); op(block, prog(u, 1.8, 1.95)); show(block, u > 1.8);
+    place(block, 812, 1010, blk > 0 ? lerp(1.9, 1, blk) : 0.001); op(block, prog(u, 1.8, 1.95)); show(block, u > 1.8);
     const lk = prog(u, 2.25, 2.55, ease.back);
     place(lock, hp[0] + 4, hp[1] - 78, Math.max(0.001, lk)); show(lock, lk > 0);
 

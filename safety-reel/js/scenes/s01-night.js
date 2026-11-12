@@ -24,11 +24,12 @@ Reel.defineScene(0, function (root) {
       <path d="M-200,-40 L200,-90 M-200,70 L200,30 M-90,-150 L-50,150 M90,-150 L120,150" stroke="#fff" stroke-width="22"/>
       <rect x="-170" y="-120" width="60" height="50" rx="10" fill="#D5C8F0"/><rect x="-30" y="80" width="110" height="60" rx="10" fill="#D5C8F0"/><rect x="130" y="-70" width="80" height="80" rx="10" fill="#D5C8F0"/>
       <path class="route" d="M-150,100 L-66,62 L-78,-52 L60,-70" fill="none" stroke="${C.lavender}" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="420" stroke-dashoffset="420"/>
-      <circle cx="-150" cy="100" r="13" fill="${C.purple}"/></g>`);
+      <circle cx="-150" cy="100" r="13" fill="${C.purple}"/></g>
+    <g filter="url(#shadow)"><rect x="-190" y="-226" width="380" height="64" rx="32" fill="#fff"/></g>${P.text(0, -183, 'Share Live Location?', 30, C.navy, 800, 'middle')}`);
   const rings = group(root, `<circle r="34" fill="none" stroke="${C.coral}" stroke-width="6"/><circle r="34" fill="none" stroke="${C.coral}" stroke-width="6"/>`);
   const pin = group(root, P.pin());
   const chip = group(root, `<g filter="url(#shadow)"><rect x="-215" y="-40" width="430" height="80" rx="40" fill="${C.navy}" stroke="${C.green}" stroke-width="4"/></g>
-    <circle cx="-176" cy="0" r="11" fill="${C.green}"/>${P.text(-152, 10, 'Shared with Amma', 29, '#fff', 800)}<g transform="translate(174 0)">${P.tick(22)}</g>`);
+    <circle cx="-172" cy="0" r="24" fill="${C.lavender}"/><g transform="translate(-172 0) scale(.62)">${P.profileGlyph(C.purple)}</g>${P.text(-134, 11, 'Family · sharing', 29, '#fff', 800)}<g transform="translate(174 0)">${P.tick(22)}</g>`);
   const route = card.querySelector('.route'), ringEls = rings.children;
   const CARD = [800, 800], PIN = [860, 730];
 

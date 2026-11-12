@@ -105,7 +105,7 @@
       const s = document.createElement('span'); s.dataset.i = i; s.textContent = i + 1;
       s.style.flex = (i === last ? m.duration + c.outro : m.duration) + ' 0 0'; $('tl-scenes').appendChild(s);
       const li = document.createElement('li'), b = document.createElement('button');
-      b.dataset.i = i; b.innerHTML = `<b>${String(i + 1).padStart(2, '0')}</b>${c.scenes[i].keyword.join(' ').replace(/\*/g, '')}`;
+      b.dataset.i = i; b.innerHTML = `<b>${String(i + 1).padStart(2, '0')}</b>${c.scenes[i].label}`;
       b.onclick = () => seek(m.start + 0.001, true); li.appendChild(b); $('scene-list').appendChild(li);
     });
     const tl = $('timeline');

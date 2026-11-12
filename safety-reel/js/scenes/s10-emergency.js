@@ -25,8 +25,9 @@ Reel.defineScene(9, function (root) {
 
   // end card
   const cta = c.ending.lines.map((ln, i) => group(root, P.text(0, 0, ln, i ? 88 : 124, i ? '#fff' : C.coral, 800, 'middle', 'letter-spacing="-1"')));
-  const ctaY = [640, 760, 866];
-  const pill = group(root, `<rect x="-190" y="-38" width="380" height="76" rx="38" fill="${C.red}"/>${P.text(0, 12, 'EMERGENCY · 112', 32, '#fff', 800, 'middle', 'letter-spacing="2"')}`);
+  const ctaY = [600, 712, 812];
+  const telugu = group(root, `${P.text(0, 0, 'Ee information mee friends and sisters ki', 31, C.cream, 600, 'middle')}${P.text(0, 42, 'kuda share cheyandi.', 31, C.cream, 600, 'middle')}`);
+  const pill = group(root, `<g filter="url(#shadow)"><rect x="-150" y="-48" width="300" height="96" rx="48" fill="${C.red}" stroke="#fff" stroke-width="5"/></g><path d="M-104,14 q4,-34 40,-34 v-16 l30,28 l-30,28 v-16 q-26,0 -40,10 z" fill="#fff"/>${P.text(46, 15, 'SHARE', 38, '#fff', 800, 'middle', 'letter-spacing="2"')}`);
   const plane = group(root, `<g transform="scale(1.5)">${P.icon.plane(C.cream)}</g>`);
   const trail = group(root, `<path d="" fill="none" stroke="${C.cream}" stroke-width="6" stroke-dasharray="4 18" stroke-linecap="round" opacity=".7"/>`);
   let lastStatus = '';
@@ -37,7 +38,7 @@ Reel.defineScene(9, function (root) {
     op(glowEnd, end); op(root.querySelector('.redglow'), 1 - 0.85 * end);
 
     const connected = u > 2.75;
-    const txt = connected ? 'Connected · help is on the way' : 'Calling' + '.'.repeat(1 + ((Math.floor(lt * 3) % 3) + 3) % 3);
+    const txt = connected ? 'Connected · help is on the way' : 'Emergency (India) · calling' + '.'.repeat(1 + ((Math.floor(lt * 3) % 3) + 3) % 3);
     if (txt !== lastStatus) { status.textContent = txt; lastStatus = txt; status.setAttribute('fill', connected ? C.green : C.cream); }
     const ck = prog(u, 0.25, 0.7, ease.back);
     place(card, CARD[0], CARD[1] - end * 520 + (1 - ck) * 60, (0.7 + 0.3 * ck) * (1 - 0.2 * end)); op(card, Math.min(prog(u, 0.25, 0.5), 1 - end)); show(card, u > 0.25 && end < 1);
@@ -48,16 +49,16 @@ Reel.defineScene(9, function (root) {
     // heroine: calls loudly for help → confident final pose
     const talk = o < 0 && u > 0.6 && Math.sin(lt * 15) > -0.2 && !connected;
     const gx = lerp(290, 540, end), stepping = Math.sin(end * Math.PI);
-    const callPose = { handF: [104, -214], handB: [lerp(-52, 96, prog(u, 0.5, 0.9, ease.io) * (1 - prog(u, 2.6, 3, ease.io))), lerp(8, -250, prog(u, 0.5, 0.9, ease.io) * (1 - prog(u, 2.6, 3, ease.io)))] };
+    const callPose = { handF: [70, -240], handB: [-60, -6] };
     const finalPose = { handF: [112, -196], handB: [-78, -14] };
     const w = rig.walk(gx / 44, stepping * 0.6, 0);
     const p = mix(callPose, finalPose, end);
-    girl.set(Object.assign(w, p, { x: gx, s: S, ground: GY, prop: 'phone', propTilt: -8 + 14 * end, palmB: p.handB[1] < -200, palmTilt: 30,
-      turn: 0.75 - 0.75 * end, tilt: -3 + 3 * end, brow: -8 * (1 - end) * (connected ? 0.3 : 1), mouth: o > 0.3 || connected ? 'smile' : (talk ? 'open' : 'firm'),
+    girl.set(Object.assign(w, p, { x: gx, s: S, ground: GY, prop: end < 0.5 ? 'ear' : 'phone', propTilt: -8 + 14 * end, 
+      turn: 0.35 - 0.35 * end, tilt: -3 + 3 * end, brow: -8 * (1 - end) * (connected ? 0.3 : 1), mouth: o > 0.3 || connected ? 'smile' : (talk ? 'open' : 'firm'),
       lean: 2 * (1 - end), blink: rig.blink(env.t, 1) }));
     place(shadow, gx, 0, 1);
     const hp = girl.handPos('F', 60);
-    place(waves, hp[0] + 46, hp[1], 1 + 0.08 * Math.sin(lt * 12)); show(waves, o < 0 && u > 0.6);
+    place(waves, hp[0] + 60, hp[1] + 20, 1 + 0.08 * Math.sin(lt * 12)); show(waves, o < 0 && u > 0.6);
     Array.from(waves.children).forEach((wv, i) => wv.setAttribute('opacity', (0.25 + 0.6 * Math.max(0, Math.sin(lt * 9 - i * 1.1))).toFixed(2)));
 
     // end card
@@ -65,8 +66,9 @@ Reel.defineScene(9, function (root) {
       const k = prog(o, 0.35 + i * 0.16, 0.8 + i * 0.16, ease.back);
       place(g, 540, ctaY[i] + (1 - k) * 60, 0.8 + 0.2 * k); op(g, prog(o, 0.35 + i * 0.16, 0.6 + i * 0.16)); show(g, o > 0.3);
     });
-    const pk = prog(o, 0.95, 1.3, ease.back); place(pill, 540, 980, Math.max(0.001, pk)); show(pill, pk > 0);
-    const fly = prog(o, 0.75, 1.7, ease.soft), P0 = hp, P1 = [760, 1150], P2 = [900, 470];
+    const pk = prog(o, 0.95, 1.3, ease.back); place(pill, 835, 1420, Math.max(0.001, pk) * (1 + 0.04 * Math.sin(lt * 6))); show(pill, pk > 0);
+    const tg = prog(o, 0.85, 1.25, ease.out); place(telugu, 540, 880 + (1 - tg) * 30, 1); op(telugu, tg); show(telugu, tg > 0);
+    const fly = prog(o, 0.75, 1.7, ease.soft), P0 = hp, P1 = [820, 1100], P2 = [930, 500];
     const q = t => [(1 - t) * (1 - t) * P0[0] + 2 * t * (1 - t) * P1[0] + t * t * P2[0], (1 - t) * (1 - t) * P0[1] + 2 * t * (1 - t) * P1[1] + t * t * P2[1]];
     const a = q(fly), b = q(Math.min(1, fly + 0.02));
     place(plane, a[0], a[1] + Math.sin(lt * 3) * 8 * (fly >= 1 ? 1 : 0), 0.6 + 0.6 * fly, Math.atan2(b[1] - a[1], b[0] - a[0]) * 57.3 + 20 + (fly >= 1 ? -42 : 0) * 0);

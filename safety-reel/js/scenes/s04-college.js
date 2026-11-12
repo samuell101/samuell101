@@ -37,12 +37,12 @@ Reel.defineScene(3, function (root) {
 
   // chat card
   const card = group(root, `<g filter="url(#shadow)"><rect x="-230" y="-170" width="460" height="340" rx="40" fill="${C.cream}"/></g>
-    <circle cx="-176" cy="-116" r="34" fill="${C.lavender}"/>${P.text(-176, -103, 'A', 36, C.purple, 800, 'middle')}
-    ${P.text(-128, -110, 'Amma', 34, C.navy)}<circle cx="-118" cy="-86" r="7" fill="${C.green}"/>${P.text(-104, -78, 'online', 20, '#7A7389', 600)}
+    <circle cx="-176" cy="-116" r="34" fill="${C.lavender}"/>${P.text(-176, -103, 'M', 36, C.purple, 800, 'middle')}
+    ${P.text(-128, -110, 'Mom', 34, C.navy)}<path d="M-28,-134 c-7,-12 -24,-2 -12,12 l12,12 l12,-12 c12,-14 -5,-24 -12,-12 z" fill="${C.red}"/><circle cx="-118" cy="-86" r="7" fill="${C.green}"/>${P.text(-104, -78, 'online', 20, '#7A7389', 600)}
     <rect x="-230" y="-66" width="460" height="3" fill="#E6DACB"/>
     <g class="typing"><rect x="96" y="-44" width="104" height="54" rx="27" fill="${C.lavender}"/><circle class="d" cx="124" cy="-17" r="7" fill="#fff"/><circle class="d" cx="148" cy="-17" r="7" fill="#fff"/><circle class="d" cx="172" cy="-17" r="7" fill="#fff"/></g>
     <g class="out"><rect x="-150" y="-48" width="350" height="96" rx="30" fill="${C.lavender}"/>
-      ${P.text(-124, -10, 'Leaving college now.', 26, '#fff')}${P.text(-124, 26, 'Home by 7!', 26, '#fff')}
+      ${P.text(-124, -10, "I'm leaving college", 27, '#fff')}${P.text(-124, 26, 'now.', 27, '#fff')}
       <path class="ticks" d="M134,20 l8,8 l16,-18 M150,20 l8,8 l16,-18" stroke="#fff" stroke-width="4.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g>
     <g class="in"><rect x="-200" y="64" width="310" height="70" rx="30" fill="#fff"/>${P.text(-174, 109, 'Sare, jagratha!', 27, C.navy)}
       <path d="M72,92 c-7,-12 -24,-2 -12,12 l12,12 l12,-12 c12,-14 -5,-24 -12,-12 z" fill="${C.coral}"/></g>`);

@@ -29,7 +29,7 @@
     for (let o = 0.15; o < 2.6; o += 0.34) add('followed', o, 'step', 0.6);
     add('followed', 0.1, 'drone', 0.5, { dur: 2.0 }); add('followed', 1.7, 'ambience', 0.5, { dur: 1.5 });
     for (let o = 0; o < 3; o += 0.5) add('party', o, 'kick', 0.5);
-    add('party', 0.95, 'pop', 0.5); add('party', 1.15, 'warn', 0.7); add('party', 2.05, 'tick', 0.6);
+    add('party', 1.05, 'warn', 0.7); add('party', 1.95, 'clink', 0.5); add('party', 2.1, 'tick', 0.6);
     add('sos', 0.35, 'type', 0.7); [0.9, 1.1, 1.3].forEach(o => add('sos', o, 'pop', 0.5));
     [1.6, 2.1, 2.6].forEach(o => add('sos', o, 'sos', 0.55));
     add('boundary', -0.3, 'whoosh', 0.4, { dur: 0.5 }); add('boundary', 0.35, 'thud', 0.8); add('boundary', 1.2, 'thud', 0.5);

@@ -36,6 +36,9 @@ Reel.defineScene(5, function (root) {
   const girl = Reel.Person(world, 'girl');
   const dark = group(root, `<rect width="1080" height="1920" fill="#080712"/>`);
   const alert = group(root, `<circle r="40" fill="${C.coral}"/><rect x="-6" y="-24" width="12" height="30" rx="6" fill="#fff"/><circle cy="18" r="7" fill="#fff"/>`);
+  const crowdSign = group(root, `<g filter="url(#shadow)"><rect x="-170" y="-70" width="340" height="140" rx="26" fill="#15803D" stroke="#fff" stroke-width="6"/></g>
+    ${P.text(-26, -8, 'CROWD', 44, '#fff', 800, 'middle')}${P.text(-26, 40, 'AREA', 44, '#fff', 800, 'middle')}<path d="M92,10 l20,22 l40,-48" stroke="#fff" stroke-width="12" fill="none" stroke-linecap="round" stroke-linejoin="round"/>`);
+  const arrow = group(root, `<path class="sh" d="M0,0 Q110,-150 300,-170" stroke="#fff" stroke-width="20" fill="none" stroke-linecap="round" stroke-dasharray="380" stroke-dashoffset="380"/><path class="hd" d="M268,-212 L324,-172 L268,-128" stroke="#fff" stroke-width="20" fill="none" stroke-linecap="round" stroke-linejoin="round"/>`);
   let cam = 0;
   const camAt = u => PAN * prog(u, 0.95, 2.6, ease.io);
 
@@ -62,6 +65,10 @@ Reel.defineScene(5, function (root) {
     follower.set(Object.assign(fw, { x: fx, s: 1.24, ground: GY, lean: 6, tilt: 6 }));
     place(fShadow, fx, GY, 1 + 0.25 * Math.sin(lt * 2));
 
+    const ar = prog(u, 1.05, 1.5, ease.io), arOut = 1 - prog(u, 2.1, 2.4);
+    place(arrow, 520, 890, 1); arrow.querySelector('.sh').setAttribute('stroke-dashoffset', (380 * (1 - ar)).toFixed(1));
+    op(arrow.querySelector('.hd'), prog(u, 1.4, 1.5)); op(arrow, arOut * 0.9); show(arrow, ar > 0 && arOut > 0);
+    const cs = prog(u, 1.55, 1.9, ease.back); place(crowdSign, 800, 640, Math.max(0.001, cs)); show(crowdSign, cs > 0 && env.pout < 0.25);
     crowd.forEach((p, i) => {
       const d = crowdDefs[i], talk = Math.sin(lt * 3 + i * 1.3);
       p.set({ x: d[1] + Math.sin(lt * 0.8 + i) * 8, s: d[3], flip: d[2], ground: d[4], handF: [70 + 26 * talk, -150 - 22 * talk], turn: 0.6,

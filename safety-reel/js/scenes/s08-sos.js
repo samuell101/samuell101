@@ -12,7 +12,7 @@ Reel.defineScene(7, function (root) {
   // her hand + sleeve behind the phone
   group(rigG, `<rect x="-330" y="520" width="400" height="900" rx="110" fill="${rig.LOOKS.girl.top}" transform="rotate(-10 -130 700)"/>
     <rect x="-300" y="150" width="520" height="520" rx="150" fill="${skin}" transform="rotate(-8)"/>`);
-  const contacts = [['Amma', C.lavender, C.purple], ['Nanna', C.coral, '#4A1512'], ['Akka', C.green, '#0B3B1E']];
+  const contacts = [['Mom', C.lavender, C.purple], ['Dad', C.coral, '#4A1512'], ['Sis', C.green, '#0B3B1E']];
   const phone = group(rigG, `<g filter="url(#shadow)"><rect x="-262" y="-522" width="524" height="1044" rx="78" fill="#0B1020"/></g>
     <rect x="-262" y="-522" width="524" height="1044" rx="78" fill="none" stroke="#3B4466" stroke-width="4"/>
     <defs><linearGradient id="s8scr" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4A3A86"/><stop offset=".6" stop-color="#272044"/><stop offset="1" stop-color="#141B33"/></linearGradient>
@@ -29,7 +29,7 @@ Reel.defineScene(7, function (root) {
         ${P.text(0, 88, ct[0], 26, '#fff', 800, 'middle')}<g transform="translate(34 -34)"><circle r="17" fill="#fff"/><g transform="scale(.36)">${P.icon.phone('#111827')}</g></g></g>`).join('')}
       <g class="rings"><circle r="${BTN_R}" fill="none" stroke="${C.red}" stroke-width="8"/><circle r="${BTN_R}" fill="none" stroke="${C.red}" stroke-width="8"/></g>
       <g class="btn"><circle r="${BTN_R}" fill="${C.red}"/>${P.text(0, 22, 'SOS', 64, '#fff', 800, 'middle', 'letter-spacing="2"')}</g>
-      ${P.text(0, 446, 'Press and hold for help', 25, C.cream, 600, 'middle', 'opacity=".8"')}
+      <rect x="-170" y="414" width="340" height="60" rx="30" fill="#fff" opacity=".14"/><rect x="-160" y="422" width="84" height="44" rx="22" fill="${C.red}"/>${P.text(-118, 454, '112', 28, '#fff', 800, 'middle')}${P.text(-62, 454, 'Call Emergency', 25, '#fff', 600)}
       <rect class="off" x="-242" y="-502" width="484" height="1004" fill="#070912"/></g>`);
   // fingers wrapping the right edge + thumb in front
   group(rigG, [0, 1, 2, 3].map(i => `<rect x="226" y="${170 + i * 104}" width="92" height="88" rx="44" fill="${skin}"/><rect x="226" y="${170 + i * 104}" width="36" height="88" rx="18" fill="${skinShade}" opacity=".35"/>`).join(''));

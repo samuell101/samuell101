@@ -55,6 +55,7 @@ Reel.defineScene(2, function (root) {
     <rect x="420" y="1334" width="250" height="24" rx="12" fill="${C.cream}"/><rect x="420" y="1348" width="250" height="10" rx="5" fill="#E2D2BF"/>`);
   const cupA = group(root, cup + steam), cupB = group(root, cup + steam);
   place(cupA, 486, 1334, 1);
+  const tip = group(root, `<g filter="url(#shadow)"><rect x="-190" y="-58" width="380" height="116" rx="44" fill="#fff"/></g><g transform="translate(-132 0)">${P.tick(34)}</g>${P.text(-82, -6, 'Meet in', 32, C.navy)}${P.text(-82, 34, 'Public Place', 32, C.navy)}`);
   const RIM = [486, 1286];
   let camS = 1;
 
@@ -93,6 +94,7 @@ Reel.defineScene(2, function (root) {
     g1.set(Object.assign({}, rig.SIT, { x: 800, s: 0.62, y: FLOOR - 20 - 150 * 0.62, turn: 0.6, handF: [100, -100 + Math.sin(lt * 2.4) * 8], blink: rig.blink(env.t, 6) }));
     g2.set(Object.assign({}, rig.SIT, { x: 990, s: 0.62, flip: -1, y: FLOOR - 20 - 150 * 0.62, turn: 0.6, handF: [96, -104], tilt: Math.sin(lt * 1.7) * 3, blink: rig.blink(env.t, 7) }));
 
+    const tk = prog(u, 1.35, 1.7, ease.back); place(tip, 560, 930, Math.max(0.001, tk)); show(tip, tk > 0 && env.pout < 0.3);
     root.querySelectorAll('.steam').forEach((s, i) => {
       s.setAttribute('transform', `translate(0 ${(-((lt * 14 + i * 9) % 18)).toFixed(1)})`);
       s.setAttribute('opacity', (0.18 + 0.2 * Math.abs(Math.sin(lt * 1.6 + i))).toFixed(2));

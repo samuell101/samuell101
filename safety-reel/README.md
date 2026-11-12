@@ -3,7 +3,7 @@
 A 34-second, 9:16 (1080×1920, 30 fps) 2D vector explainer built only with
 HTML, CSS, JavaScript and SVG. No video clips, no dependencies.
 
-* **Finished render:** `output/safety-reel.mp4` (with sound effects, no narration)
+* **Finished render:** `output/safety-reel.mp4` (with sound effects, no narration; follows the storyboard)
 * **Live preview:** open `index.html` in a browser
 
 ## Preview

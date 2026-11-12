@@ -74,11 +74,11 @@
   };
 
   /* number plate — origin centre, 270×76 */
-  P.plateText = 'TS09 EA 4521';
+  P.plateText = 'AP 39 AB 6482';
   P.plate = () => `
-    <rect x="-135" y="-38" width="270" height="76" rx="14" fill="${C.cream}" stroke="${C.navy}" stroke-width="6"/>
+    <rect x="-135" y="-38" width="270" height="76" rx="14" fill="#FACC15" stroke="${C.navy}" stroke-width="6"/>
     <rect x="-129" y="-32" width="30" height="64" rx="8" fill="#5B6BD6"/>
-    ${P.text(17, 12, P.plateText, 30, C.navy, 800, 'middle')}`;
+    ${P.text(17, 11, P.plateText, 28, C.navy, 800, 'middle')}`;
 
   /* cab — side view, facing left; origin = centre of wheelbase on the ground */
   P.car = (uid = 'car') => `
@@ -96,8 +96,8 @@
       </g>
       <rect x="2" y="-140" width="4" height="96" fill="#D9C9B5"/>
       <rect x="-40" y="-132" width="30" height="8" rx="4" fill="#CDBBA5"/><rect x="150" y="-132" width="30" height="8" rx="4" fill="#CDBBA5"/>
-      <rect x="-34" y="-256" width="72" height="28" rx="10" fill="${C.lavender}"/>${P.text(2, -235, 'CAB', 19, C.purple, 800, 'middle')}
-      <path d="M-306,-116 q4,-10 22,-12 l0,24 q-18,2 -22,-12 z" fill="#FFE9A8"/>
+      <rect x="-34" y="-256" width="72" height="28" rx="10" fill="${C.lavender}"/>${P.text(2, -235, 'TAXI', 18, C.purple, 800, 'middle')}
+      <rect x="-312" y="-84" width="30" height="20" rx="4" fill="#FACC15"/><path d="M-306,-116 q4,-10 22,-12 l0,24 q-18,2 -22,-12 z" fill="#FFE9A8"/>
       <rect x="296" y="-122" width="12" height="26" rx="6" fill="${C.red}"/>
       <circle cx="-190" cy="-52" r="62" fill="#191530"/><circle cx="188" cy="-52" r="62" fill="#191530"/>
     </g>
